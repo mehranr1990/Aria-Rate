@@ -1,0 +1,675 @@
+@if(!settingShow){
+<div class="max-w-4xl w-full bg-white rounded-xl shadow-lg p-8">
+  <div class="flex items-center justify-between mb-8">
+    <button class="p-2 text-gray-600 hover:text-gray-800 transition-colors" (click)="settingToggle()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-settings w-6 h-6"
+      >
+        <path
+          d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+        ></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>
+    </button>
+    <h1 class="text-2xl font-bold text-gray-800">تبدیل معکوس ارز</h1>
+  </div>
+  <div class="space-y-8">
+    <div class="bg-white rounded-lg shadow-sm">
+      <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
+        <h3 class="text-lg font-medium text-gray-800">دلار آمریکا</h3>
+      </div>
+      <div class="p-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ دلار آمریکا به تومان در تهران</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 72205"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ دلار آمریکا به تومان در مشهد</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 72205"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ دلار آمریکا به تومان در استانبول</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 72205"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white rounded-lg shadow-sm">
+      <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
+        <h3 class="text-lg font-medium text-gray-800">یورو</h3>
+      </div>
+      <div class="p-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ یورو به تومان در تهران</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 78500"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ یورو به تومان در مشهد</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 78500"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ یورو به تومان در استانبول</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 78500"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white rounded-lg shadow-sm">
+      <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
+        <h3 class="text-lg font-medium text-gray-800">تتر</h3>
+      </div>
+      <div class="p-4">
+        <div class="space-y-4">
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700"
+              >نرخ تتر به تومان</label
+            ><input
+              type="text"
+              inputmode="decimal"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+              placeholder="مثال: 72000"
+              dir="ltr"
+              value="0"
+            />
+          </div>
+          0
+        </div>
+      </div>
+    </div>
+    <div class="bg-white rounded-lg shadow-sm">
+      <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
+        <h3 class="text-lg font-medium text-gray-800">پوند انگلیس</h3>
+      </div>
+      <div class="p-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ پوند انگلیس به تومان در تهران</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 91000"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ پوند انگلیس به تومان در مشهد</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 91000"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ پوند انگلیس به تومان در استانبول</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 91000"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white rounded-lg shadow-sm">
+      <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
+        <h3 class="text-lg font-medium text-gray-800">لیر ترکیه</h3>
+      </div>
+      <div class="p-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ لیر ترکیه به تومان در تهران</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 2500"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ لیر ترکیه به تومان در مشهد</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 2500"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ لیر ترکیه به تومان در استانبول</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 2500"
+                dir="ltr"
+                value="0"
+              />
+            </div>
+            0
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}@else if (settingShow) {
+<div class="max-w-4xl w-full bg-white rounded-xl shadow-lg p-8">
+  <div class="flex items-center justify-between mb-8">
+    <button class="p-2 text-gray-600 hover:text-gray-800 transition-colors" (click)="settingToggle()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-settings w-6 h-6"
+      >
+        <path
+          d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+        ></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>
+    </button>
+    <h1 class="text-2xl font-bold text-gray-800">تبدیل معکوس ارز</h1>
+  </div>
+  <div class="space-y-4 mb-6 p-4 bg-gray-50 rounded-lg">
+    <div class="space-y-6">
+      <div class="bg-white rounded-lg overflow-hidden">
+        <div class="flex items-center gap-4 p-4 border-b border-gray-100">
+         
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+          <h3 class="text-lg font-medium text-gray-800">دلار آمریکا</h3>
+        </div>
+        <div class="p-4 space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">تهران</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل دلار آمریکا به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 3.6725"
+                dir="ltr"
+                value="3.6725"
+              />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">مشهد</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل دلار آمریکا به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 3.6725"
+                dir="ltr"
+                value="3.6725"
+              />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">استانبول</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل دلار آمریکا به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 3.6725"
+                dir="ltr"
+                value="3.6725"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg overflow-hidden">
+        <div class="flex items-center gap-4 p-4 border-b border-gray-100">
+         
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+          <h3 class="text-lg font-medium text-gray-800">یورو</h3>
+        </div>
+        <div class="p-4 space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">تهران</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل یورو به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 4.04"
+                dir="ltr"
+                value="4.04"
+              />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">مشهد</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل یورو به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 4.04"
+                dir="ltr"
+                value="4.04"
+              />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">استانبول</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل یورو به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 4.04"
+                dir="ltr"
+                value="4.04"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg overflow-hidden">
+        <div class="flex items-center gap-4 p-4 border-b border-gray-100">
+         
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+          <h3 class="text-lg font-medium text-gray-800">تتر</h3>
+        </div>
+        <div class="p-4">
+          <div class="p-3 bg-gray-50 rounded-lg">
+            <p class="text-sm text-gray-600">
+              این ارز در تمام شهرها نرخ یکسانی دارد
+            </p>
+          </div>
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700"
+              >نرخ تبدیل تتر به درهم</label
+            ><input
+              type="text"
+              inputmode="decimal"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+              placeholder="مثال: 3.6725"
+              dir="ltr"
+              value="3.6725"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg overflow-hidden">
+        <div class="flex items-center gap-4 p-4 border-b border-gray-100">
+         
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+          <h3 class="text-lg font-medium text-gray-800">پوند انگلیس</h3>
+        </div>
+        <div class="p-4 space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">تهران</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل پوند انگلیس به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 4.67"
+                dir="ltr"
+                value="4.67"
+              />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">مشهد</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل پوند انگلیس به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 4.67"
+                dir="ltr"
+                value="4.67"
+              />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">استانبول</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل پوند انگلیس به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 4.67"
+                dir="ltr"
+                value="4.67"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg overflow-hidden">
+        <div class="flex items-center gap-4 p-4 border-b border-gray-100">
+         
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+          <h3 class="text-lg font-medium text-gray-800">لیر ترکیه</h3>
+        </div>
+        <div class="p-4 space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">تهران</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل لیر ترکیه به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 0.13"
+                dir="ltr"
+                value="0.13"
+              />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">مشهد</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل لیر ترکیه به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 0.13"
+                dir="ltr"
+                value="0.13"
+              />
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-medium text-gray-700">استانبول</h4>
+             
+<label class="inline-flex items-center cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked>
+  <div class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+  
+</label>
+
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700"
+                >نرخ تبدیل لیر ترکیه به درهم</label
+              ><input
+                type="text"
+                inputmode="decimal"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+                placeholder="مثال: 0.13"
+                dir="ltr"
+                value="0.13"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+    >
+      ذخیره تغییرات
+    </button>
+  </div>
+</div>
+}
