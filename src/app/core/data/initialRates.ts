@@ -4,116 +4,167 @@ export const initialRates: any = {
   aedToIRR: 19588,
   cities: ['tehran', 'mashhad', 'istanbul'],
   currencies: [
-    { 
-      code: 'USD', 
+    {
+      code: 'USD',
       name: 'دلار آمریکا',
       isEnabled: true,
-      rates: [{
-        city: 'تهران',
+      isGlobal: false,
+      rates: [
+        {
+          city: 'تهران',
+          cityEn: 'tehran',
           rateToAED: 3.6725,
           rateFromAED: 3.6725,
-          isEnabled: true
-        },{
-        city: 'مشهد' ,
+          value: 0,
+          isEnabled: true,
+        },
+        {
+          city: 'مشهد',
+          cityEn: 'mashhad',
           rateToAED: 3.6725,
           rateFromAED: 3.6725,
-          isEnabled: true
-        },{
-        city: 'استانبول',
+          value: 0,
+          isEnabled: true,
+        },
+        {
+          city: 'استانبول',
+
+          cityEn: 'istanbul',
           rateToAED: 3.6725,
           rateFromAED: 3.6725,
-          isEnabled: true
-        }
-      ]
+          value: 0,
+          isEnabled: true,
+        },
+      ],
     },
-    { 
-      code: 'EUR', 
+    {
+      code: 'EUR',
       name: 'یورو',
       isEnabled: true,
-      rates: [{
-        city: 'تهران',
+      isGlobal: false,
+      rates: [
+        {
+          city: 'تهران',
+          cityEn: 'tehran',
           rateToAED: 4.04,
           rateFromAED: 4.02,
-          isEnabled: true
-        },{
-        city: 'مشهد' ,
+          value: 0,
+          isEnabled: true,
+        },
+        {
+          city: 'مشهد',
+          cityEn: 'mashhad',
           rateToAED: 4.04,
           rateFromAED: 4.02,
-          isEnabled: true
-        },{
-        city: 'استانبول',
+          value: 0,
+          isEnabled: true,
+        },
+        {
+          city: 'استانبول',
+          cityEn: 'istanbul',
           rateToAED: 4.04,
           rateFromAED: 4.02,
-          isEnabled: true
-        }
-      ]
+          value: 0,
+          isEnabled: true,
+        },
+      ],
     },
-    { 
-      code: 'USDT', 
+    {
+      code: 'USDT',
       name: 'تتر',
       isEnabled: true,
       isGlobal: true,
-      rates: [{
-        city: 'تهران',
+      rates: [
+        {
+          city: 'تهران',
+          cityEn: 'tehran',
           rateToAED: 3.6725,
           rateFromAED: 3.6725,
-          isEnabled: true
-        },{
-        city: 'مشهد' ,
+          value: 0,
+          isEnabled: true,
+        },
+        {
+          city: 'مشهد',
+          cityEn: 'mashhad',
           rateToAED: 3.6725,
           rateFromAED: 3.6725,
-          isEnabled: true
-        },{
-        city: 'استانبول',
+          value: 0,
+          isEnabled: true,
+        },
+        {
+          city: 'استانبول',
+          cityEn: 'istanbul',
           rateToAED: 3.6725,
           rateFromAED: 3.6725,
-          isEnabled: true
-        }
-      ]
+          value: 0,
+          isEnabled: true,
+        },
+      ],
     },
-    { 
-      code: 'GBP', 
+    {
+      code: 'GBP',
       name: 'پوند انگلیس',
       isEnabled: true,
-      rates: [{
-        city: 'تهران',
+      isGlobal: false,
+      rates: [
+        {
+          city: 'تهران',
+          cityEn: 'tehran',
           rateToAED: 4.67,
           rateFromAED: 4.65,
-          isEnabled: true
-        },{
-        city: 'مشهد' ,
+          value: 0,
+          isEnabled: true,
+        },
+        {
+          city: 'مشهد',
+          cityEn: 'mashhad',
           rateToAED: 4.67,
           rateFromAED: 4.65,
-          isEnabled: true
-        },{
-        city: 'استانبول',
+          value: 0,
+          isEnabled: true,
+        },
+        {
+          city: 'استانبول',
+          cityEn: 'istanbul',
           rateToAED: 4.67,
           rateFromAED: 4.65,
-          isEnabled: true
-        }
-      ]
+          value: 0,
+          isEnabled: true,
+        },
+      ],
     },
-    { 
-      code: 'TRY', 
+    {
+      code: 'TRY',
       name: 'لیر ترکیه',
       isEnabled: true,
-      rates: [{
-        city: 'تهران',
+      isGlobal: false,
+      rates: [
+        {
+          city: 'تهران',
+          cityEn: 'tehran',
           rateToAED: 0.13,
           rateFromAED: 0.129,
-          isEnabled: true
-        },{
-        city: 'مشهد' ,
+          value: 0,
+          isEnabled: true,
+        },
+        {
+          city: 'مشهد',
+          cityEn: 'mashhad',
           rateToAED: 0.13,
           rateFromAED: 0.129,
-          isEnabled: true
-        },{
-        city: 'استانبول',
+          value: 0,
+          isEnabled: true,
+        },
+        {
+          city: 'استانبول',
+          cityEn: 'istanbul',
           rateToAED: 0.13,
           rateFromAED: 0.129,
-          isEnabled: true
-        }
-      ]
+          value: 0,
+          isEnabled: true,
+        },
+      ],
     },
-  ]
+  ],
+  
 };

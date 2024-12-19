@@ -1,25 +1,67 @@
 import { Component, OnInit } from '@angular/core';
 import { initialRates } from '../../core/data/initialRates';
 import { CommonModule, KeyValuePipe } from '@angular/common';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DbControlService } from '../../core/services/db-control.service';
+import {
+  addToDataase,
+  getDatabase,
+  initializeDatabase,
+  updateCurrentAEDRate,
+  updateDataBaseRates,
+} from '../../core/db';
 
 @Component({
   selector: 'app-currency-converter',
   standalone: true,
-  imports: [KeyValuePipe,CommonModule ],
+  imports: [KeyValuePipe, CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './currency-converter.component.html',
-  styleUrl: './currency-converter.component.scss'
+  styleUrl: './currency-converter.component.scss',
 })
-export class CurrencyConverterComponent implements OnInit{
-data:any
-  ngOnInit(): void {
-  this.data = initialRates
-  console.log(this.data);
-  
-}
-  
-settingShow :boolean =false
-settingToggle(){
-  this.settingShow = !this.settingShow
-}
+export class CurrencyConverterComponent implements OnInit {
+  aedRate: any;
+  data: any;
+  dbdata: any;
+  constructor(public dbData: DbControlService) {
+    this.dbdata = dbData.currencies;
+    console.log(this.dbdata);
+  }
+  async ngOnInit() {
+    
+    console.log(localStorage.getItem('key'));
+    
+    const key = localStorage.getItem('key')
+    console.log(key);
+    initializeDatabase();
+    const fetchfromDb = await getDatabase(key);
+    console.log(fetchfromDb);
+    
+    if(fetchfromDb==undefined){
+      
+      this.data = initialRates
+      console.log(initialRates);
+    }else if(fetchfromDb){
+
+      console.log(fetchfromDb);
+      this.data = fetchfromDb;
+    }
+
+    // addToDataase(this.data,2)
+  }
+
+  settingShow: boolean = false;
+  settingToggle() {
+    this.settingShow = !this.settingShow;
+  }
+
+  async changeRate() {
+    const key = localStorage.getItem('key')
+    updateDataBaseRates(this.data,key)
+  }
+  updateDatabase(){
+    const key = localStorage.getItem('key')
+    console.log(this.data);
+    
+    updateDataBaseRates(this.data,key)
+  }
 }

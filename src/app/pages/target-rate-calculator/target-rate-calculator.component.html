@@ -3,230 +3,72 @@
     محاسبه نرخ درهم مورد نیاز
   </h1>
   <div class="space-y-8">
+    @for (item of data.currencies; track $index) { @if(item.isGlobal){
     <div class="bg-white rounded-lg shadow-sm">
       <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
-        <h3 class="text-lg font-medium text-gray-800">دلار آمریکا</h3>
-      </div>
-      <div class="p-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر دلار آمریکا در تهران</label
-              ><input
-                type="text"
-                inputmode="decimal"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 72205"
-                dir="ltr"
-                value=""
-              />
-            </div>
-          </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر دلار آمریکا در مشهد</label
-              ><input
-                type="text"
-                inputmode="decimal"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 72205"
-                dir="ltr"
-                value=""
-              />
-            </div>
-          </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر دلار آمریکا در استانبول</label
-              ><input
-                type="text"
-                inputmode="decimal"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 72205"
-                dir="ltr"
-                value=""
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="bg-white rounded-lg shadow-sm">
-      <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
-        <h3 class="text-lg font-medium text-gray-800">یورو</h3>
-      </div>
-      <div class="p-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر یورو در تهران</label
-              ><input
-                type="text"
-                inputmode="decimal"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 78500"
-                dir="ltr"
-                value=""
-              />
-            </div>
-          </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر یورو در مشهد</label
-              ><input
-                type="text"
-                inputmode="decimal"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 78500"
-                dir="ltr"
-                value=""
-              />
-            </div>
-          </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر یورو در استانبول</label
-              ><input
-                type="text"
-                inputmode="decimal"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 78500"
-                dir="ltr"
-                value=""
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="bg-white rounded-lg shadow-sm">
-      <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
-        <h3 class="text-lg font-medium text-gray-800">تتر</h3>
+        <h3 class="text-lg font-medium text-gray-800">{{ item.name }}</h3>
       </div>
       <div class="p-4">
         <div class="space-y-4">
           <div class="space-y-2">
             <label class="block text-sm font-medium text-gray-700"
-              >نرخ مورد نظر تتر</label
+              >نرخ مورد نظر {{ item.name }}</label
             ><input
               type="text"
               inputmode="decimal"
               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
               placeholder="مثال: 72000"
               dir="ltr"
-              value=""
+              [(ngModel)]="item.rates[0].value"
             />
           </div>
         </div>
       </div>
     </div>
+    <div class="p-4 bg-gray-50 rounded-lg">
+      <div class="text-sm text-gray-600 mb-1">نرخ درهم مورد نیاز:</div>
+      <div class="text-left dir-ltr text-xl font-bold text-blue-600">
+        {{ item.rates[0].value /item.rates[0].rateFromAED| number : "1.0-0" }} تومان
+      </div>
+      <div class="text-sm text-gray-500 mt-1 text-left dir-ltr">
+        1 درهم = {{ item.rates[0].rateFromAED }} {{ item.code }}
+      </div>
+    </div>
+    }@else if(!item.isGlobal){
     <div class="bg-white rounded-lg shadow-sm">
       <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
-        <h3 class="text-lg font-medium text-gray-800">پوند انگلیس</h3>
+        <h3 class="text-lg font-medium text-gray-800">{{ item.name }}</h3>
       </div>
       <div class="p-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          @for (item1 of item.rates; track $index) {
           <div class="space-y-4">
             <div class="space-y-2">
               <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر پوند انگلیس در تهران</label
+                >نرخ مورد نظر {{ item.name }} در {{ item1.city }}</label
               ><input
                 type="text"
                 inputmode="decimal"
                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 91000"
+                placeholder="مثال: 72205"
                 dir="ltr"
-                value=""
+                [(ngModel)]="item1.value"
               />
             </div>
-          </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر پوند انگلیس در مشهد</label
-              ><input
-                type="text"
-                inputmode="decimal"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 91000"
-                dir="ltr"
-                value=""
-              />
+            <div class="p-4 bg-gray-50 rounded-lg">
+              <div class="text-sm text-gray-600 mb-1">نرخ درهم مورد نیاز:</div>
+              <div class="text-left dir-ltr text-xl font-bold text-blue-600">
+                {{ item1.value / item1.rateFromAED | number : "1.0-0" }} تومان
+              </div>
+              <div class="text-sm text-gray-500 mt-1 text-left dir-ltr">
+                1 درهم = {{ item1.rateFromAED }} {{ item.code }}
+              </div>
             </div>
           </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر پوند انگلیس در استانبول</label
-              ><input
-                type="text"
-                inputmode="decimal"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 91000"
-                dir="ltr"
-                value=""
-              />
-            </div>
-          </div>
+          }
         </div>
       </div>
     </div>
-    <div class="bg-white rounded-lg shadow-sm">
-      <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
-        <h3 class="text-lg font-medium text-gray-800">لیر ترکیه</h3>
-      </div>
-      <div class="p-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر لیر ترکیه در تهران</label
-              ><input
-                type="text"
-                inputmode="decimal"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 72000"
-                dir="ltr"
-                value=""
-              />
-            </div>
-          </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر لیر ترکیه در مشهد</label
-              ><input
-                type="text"
-                inputmode="decimal"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 72000"
-                dir="ltr"
-                value=""
-              />
-            </div>
-          </div>
-          <div class="space-y-4">
-            <div class="space-y-2">
-              <label class="block text-sm font-medium text-gray-700"
-                >نرخ مورد نظر لیر ترکیه در استانبول</label
-              ><input
-                type="text"
-                inputmode="decimal"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                placeholder="مثال: 72000"
-                dir="ltr"
-                value=""
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    } }
   </div>
 </div>
