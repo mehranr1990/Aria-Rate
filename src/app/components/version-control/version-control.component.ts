@@ -38,7 +38,7 @@ export class VersionControlComponent implements OnInit {
   restoreDb(event:any){
     
     localStorage.setItem('key',event.item)
-    
+    location.reload();
     
   }
 }

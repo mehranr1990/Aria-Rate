@@ -135,8 +135,13 @@ export const getDatabase = async (key: any) => {
   const db = await initializeDatabase();
   const tx = db.transaction('direct_city_rates', 'readwrite');
   const store = tx.objectStore('direct_city_rates');
-  let existingRate = await store.get(key);
-  return existingRate;
+  if(key){
+
+    let existingRate = await store.get(key);
+    return existingRate;
+  }else{
+    return initialRates
+  }
 };
 
 export const getRates = async (): Promise<ExchangeRate> => {

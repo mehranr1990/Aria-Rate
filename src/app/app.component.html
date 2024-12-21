@@ -4,21 +4,25 @@
   <div class="mb-4 bg-white rounded-lg p-1 shadow-sm">
     <div class="flex items-center space-x-1 rtl:space-x-reverse">
       <button (click)="navigateToCurrency()"
-        class="px-4 py-2 rounded-md transition-colors bg-blue-100 text-blue-800"
+      [ngClass]="{' bg-blue-100 text-blue-800': active == 1}"
+      class="px-4 py-2 rounded-md transition-colors  text-gray-600 hover:bg-gray-100"
       >
-        درهم به ارز
-      </button>
-      <button (click)="navigateToReverse()"
-        class="px-4 py-2 rounded-md transition-colors text-gray-600 hover:bg-gray-100"
-      >
-        ارز به درهم
-      </button>
-      <button (click)="navigateToTargetRate()"
-        class="px-4 py-2 rounded-md transition-colors text-gray-600 hover:bg-gray-100"
-      >
-        محاسبه نرخ درهم
-      </button>
-      <button (click)="navigateToTrade()"
+      درهم به ارز
+    </button>
+    <button (click)="navigateToReverse()"
+    [ngClass]="{' bg-blue-100 text-blue-800':  active == 2}"
+    class="px-4 py-2 rounded-md transition-colors text-gray-600 hover:bg-gray-100"
+    >
+    ارز به درهم
+  </button>
+  <button (click)="navigateToTargetRate()"
+  [ngClass]="{' bg-blue-100 text-blue-800':  active == 3}"
+  class="px-4 py-2 rounded-md transition-colors text-gray-600 hover:bg-gray-100"
+  >
+  محاسبه نرخ درهم
+</button>
+<button (click)="navigateToTrade()"
+[ngClass]="{' bg-blue-100 text-blue-800':  active == 4}"
         class="px-4 py-2 rounded-md transition-colors text-gray-600 hover:bg-gray-100"
       >
         تحلیل معاملات

@@ -28,17 +28,23 @@ export class CurrencyConverterComponent implements OnInit {
 
       const key = localStorage.getItem('key');
       console.log(key);
-      initializeDatabase();
-      const fetchfromDb = await getDatabase(key);
-      console.log(fetchfromDb);
+      if(key){
 
-    if (fetchfromDb == undefined) {
-      this.data = initialRates;
-      console.log(initialRates);
-    } else if (fetchfromDb) {
-      console.log(fetchfromDb);
-      this.data = fetchfromDb;
-    }
+        initializeDatabase();
+        const fetchfromDb = await getDatabase(key);
+        console.log(fetchfromDb);
+      
+      if (fetchfromDb == undefined) {
+        this.data = initialRates;
+        console.log(initialRates);
+      } else if (fetchfromDb) {
+        console.log(fetchfromDb);
+        this.data = fetchfromDb;
+      }
+      }else{
+        this.data = initialRates;
+        console.log(initialRates);
+      }
 
     // addToDataase(this.data,2)
   }
