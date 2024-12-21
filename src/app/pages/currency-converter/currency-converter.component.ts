@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { initialRates } from '../../core/data/initialRates';
 import { CommonModule, KeyValuePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DbControlService } from '../../core/services/db-control.service';
 import {
   addToDataase,
   getDatabase,
@@ -22,26 +21,21 @@ export class CurrencyConverterComponent implements OnInit {
   aedRate: any;
   data: any;
   dbdata: any;
-  constructor(public dbData: DbControlService) {
-    this.dbdata = dbData.currencies;
-    console.log(this.dbdata);
+  constructor() {
   }
   async ngOnInit() {
     
-    console.log(localStorage.getItem('key'));
-    
-    const key = localStorage.getItem('key')
-    console.log(key);
-    initializeDatabase();
-    const fetchfromDb = await getDatabase(key);
-    console.log(fetchfromDb);
-    
-    if(fetchfromDb==undefined){
-      
-      this.data = initialRates
-      console.log(initialRates);
-    }else if(fetchfromDb){
 
+      const key = localStorage.getItem('key');
+      console.log(key);
+      initializeDatabase();
+      const fetchfromDb = await getDatabase(key);
+      console.log(fetchfromDb);
+
+    if (fetchfromDb == undefined) {
+      this.data = initialRates;
+      console.log(initialRates);
+    } else if (fetchfromDb) {
       console.log(fetchfromDb);
       this.data = fetchfromDb;
     }
@@ -55,13 +49,12 @@ export class CurrencyConverterComponent implements OnInit {
   }
 
   async changeRate() {
-    const key = localStorage.getItem('key')
-    updateDataBaseRates(this.data,key)
+    const key = localStorage.getItem('key');
+    updateDataBaseRates(this.data, key);
   }
-  updateDatabase(){
-    const key = localStorage.getItem('key')
+  updateDatabase() {
+    const key = localStorage.getItem('key');
     console.log(this.data);
-    
-    updateDataBaseRates(this.data,key)
+    updateDataBaseRates(this.data, key);
   }
 }

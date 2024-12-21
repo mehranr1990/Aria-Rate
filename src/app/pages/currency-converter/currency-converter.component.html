@@ -40,7 +40,9 @@
       />
     </div>
     <div class="space-y-8">
-      @for (item of data.currencies; track $index) { @if(item.isGlobal){
+      @for (item of data.currencies; track $index) { @if(item.isEnabled){
+      @if(item.isGlobal && item.rates[0].isEnabled){
+
       <div class="bg-white rounded-lg shadow-sm">
         <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
           <h3 class="text-lg font-medium text-gray-800">{{ item.name }}</h3>
@@ -48,9 +50,7 @@
         <div class="p-4">
           <div class="p-4 bg-gray-50 rounded-lg">
             <div class="text-left dir-ltr text-xl font-bold text-blue-600">
-              {{
-                data.aedToIRR * item.rates[0].rateFromAED | number : "1.0-0"
-              }}
+              {{ data.aedToIRR * item.rates[0].rateFromAED | number : "1.0-0" }}
               تومان
             </div>
             <div class="text-sm text-gray-500 mt-1 text-left dir-ltr">
@@ -59,14 +59,14 @@
           </div>
         </div>
       </div>
-      }@else if(!item.isGlobal){
+      }@else if(!item.isGlobal ){
       <div class="bg-white rounded-lg shadow-sm">
         <div class="px-4 py-3 bg-gray-50 rounded-t-lg border-b border-gray-100">
           <h3 class="text-lg font-medium text-gray-800">{{ item.name }}</h3>
         </div>
         <div class="p-4">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            @for (item1 of item.rates; track $index) {
+            @for (item1 of item.rates; track $index) { @if(item1.isEnabled){
             <div class="p-4 bg-gray-50 rounded-lg">
               <h4 class="text-sm font-medium text-gray-600 mb-2">
                 {{ item1.city }}
@@ -78,11 +78,11 @@
                 1 {{ item.name }} = {{ item1.rateFromAED }} درهم
               </div>
             </div>
-            }
+            } }
           </div>
         </div>
       </div>
-      } }
+      } } }
     </div>
   </div>
 </div>
@@ -115,67 +115,64 @@
   </div>
   <div class="space-y-4 mb-6 p-4 bg-gray-50 rounded-lg">
     <div class="space-y-6">
-   
-      @for (item of data.currencies; track $index) {
-        @if(item.isGlobal){
-          <div class="bg-white rounded-lg overflow-hidden">
-            <div class="flex items-center gap-4 p-4 border-b border-gray-100">
-              <label class="inline-flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  [(ngModel)]="item.rates[0].isEnabled"
-                  class="sr-only peer"
-                />
-                <div
-                  class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
-                ></div>
-              </label>
-    
-              <h3 class="text-lg font-medium text-gray-800">{{item.name}}</h3>
-            </div>
-            <div class="p-4">
-              <div class="p-3 bg-gray-50 rounded-lg">
-                <p class="text-sm text-gray-600">
-                  این ارز در تمام شهرها نرخ یکسانی دارد
-                </p>
-              </div>
-              <div class="space-y-2">
-                <label class="block text-sm font-medium text-gray-700"
-                  >نرخ تبدیل درهم به {{item.name}}</label
-                ><input
-                  type="text"
-                  inputmode="decimal"
-                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
-                  placeholder="مثال: 3.6725"
-                  dir="ltr"
-                  [(ngModel)]="item.rates[0].rateFromAED"
-                />
-              </div>
-            </div>
-          </div>
-       
-        }@else if(!item.isGlobal){
-  
-        
+      @for (item of data.currencies; track $index) { @if(item.isGlobal){
       <div class="bg-white rounded-lg overflow-hidden">
         <div class="flex items-center gap-4 p-4 border-b border-gray-100">
           <label class="inline-flex items-center cursor-pointer">
             <input
               type="checkbox"
-              [(ngModel)]="dbData.currencies.usd.isEnable"
+              [(ngModel)]="item.rates[0].isEnabled"
               class="sr-only peer"
             />
             <div
               class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
             ></div>
           </label>
-          <h3 class="text-lg font-medium text-gray-800">{{item.name}}</h3>
+
+          <h3 class="text-lg font-medium text-gray-800">{{ item.name }}</h3>
+        </div>
+        <div class="p-4">
+          <div class="p-3 bg-gray-50 rounded-lg">
+            <p class="text-sm text-gray-600">
+              این ارز در تمام شهرها نرخ یکسانی دارد
+            </p>
+          </div>
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-gray-700"
+              >نرخ تبدیل درهم به {{ item.name }}</label
+            ><input
+              type="text"
+              inputmode="decimal"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
+              placeholder="مثال: 3.6725"
+              dir="ltr"
+              [(ngModel)]="item.rates[0].rateFromAED"
+            />
+          </div>
+        </div>
+      </div>
+
+      }@else if(!item.isGlobal){
+
+      <div class="bg-white rounded-lg overflow-hidden">
+        <div class="flex items-center gap-4 p-4 border-b border-gray-100">
+          <label class="inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              [(ngModel)]="item.isEnabled"
+              class="sr-only peer"
+            />
+            <div
+              class="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+            ></div>
+          </label>
+          <h3 class="text-lg font-medium text-gray-800">{{ item.name }}</h3>
         </div>
         @for (item1 of item.rates; track $index) {
         <div class="p-4 space-y-6">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <h4 class="font-medium text-gray-700">{{item1.city}}</h4>
+              <h4 class="font-medium text-gray-700">{{ item1.city }}</h4>
 
               <label class="inline-flex items-center cursor-pointer">
                 <input
@@ -191,9 +188,9 @@
             </div>
             <div class="space-y-2">
               <label class="block text-sm font-medium text-gray-700"
-                >نرخ تبدیل درهم به {{item.name}}</label
+                >نرخ تبدیل درهم به {{ item.name }}</label
               ><input
-              type="number"
+                type="number"
                 inputmode="decimal"
                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left"
                 placeholder="مثال: 3.6725"
@@ -202,11 +199,10 @@
               />
             </div>
           </div>
-          </div>
-      }
+        </div>
+        }
       </div>
       }}
-      
     </div>
     <button
       class="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"

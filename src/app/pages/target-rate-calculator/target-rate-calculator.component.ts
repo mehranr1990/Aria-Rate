@@ -6,18 +6,17 @@ import { DecimalPipe } from '@angular/common';
 @Component({
   selector: 'app-target-rate-calculator',
   standalone: true,
-  imports: [FormsModule,DecimalPipe],
+  imports: [FormsModule, DecimalPipe],
   templateUrl: './target-rate-calculator.component.html',
-  styleUrl: './target-rate-calculator.component.scss'
+  styleUrl: './target-rate-calculator.component.scss',
 })
 export class TargetRateCalculatorComponent implements OnInit {
-  
   data: any;
-  async ngOnInit(){
-     initializeDatabase();
-        const fetchfromDb = await getDatabase(2);
-        console.log(fetchfromDb);
-        this.data = fetchfromDb;
+  async ngOnInit() {
+    initializeDatabase();
+    const key = localStorage.getItem('key');
+    const fetchfromDb = await getDatabase(key);
+    console.log(fetchfromDb);
+    this.data = fetchfromDb;
   }
-
 }

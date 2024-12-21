@@ -3,98 +3,109 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class DbControlService {
+export class DbProfitService {
   constructor() {}
-  currencies = {
-    usd: {
-      isEnable:true,
-      tehran: {
-        valueto: 10,
-        valuefrom: 200,
-        isEnable: true,
-      },
-      mashhad: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
-      istanbul: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
+  currencies = [
+    {
+      name: 'درهم',
+      cities:[ {
+        
+        name: 'جهانی',
+        buy: 0,
+        sell: 0,
+      },]
     },
-    euro: {
-      isEnable:true,
-      tehran: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
-      mashhad: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
-      istanbul: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
+    {
+      name: 'دلار آمریکا',
+      
+        cities:[
+         {
+          name: 'تهران',
+          buy: 0,
+          sell: 0,
+        },
+         {
+          name: 'مشهد',
+          buy: 0,
+          sell: 0,
+        },
+         {
+          name: 'استانبول',
+          buy: 0,
+          sell: 0,
+        },
+      ]
     },
-    usdt: {
-      isEnable:true,
-      tehran: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
-      mashhad: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
-      istanbul: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
+    {
+      name: 'یورو',
+     
+        cities:[
+          {
+           name: 'تهران',
+           buy: 0,
+           sell: 0,
+         },
+          {
+           name: 'مشهد',
+           buy: 0,
+           sell: 0,
+         },
+          {
+           name: 'استانبول',
+           buy: 0,
+           sell: 0,
+         },
+       ]
     },
-    GBP: {
-      isEnable:true,
-      tehran: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
-      mashhad: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
-      istanbul: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
+    {
+      name: 'تتر',
+        cities:[ {
+          name: 'جهانی',
+          buy: 0,
+          sell: 0,
+        },]
+      
     },
-    TRY: {
-      isEnable:true,
-      tehran: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
-      mashhad: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
-      istanbul: {
-        valueto: 0,
-        valuefrom: 0,
-        isEnable: true,
-      },
+    {
+      name: 'پوند انگلیس',
+      
+        cities:[
+          {
+           name: 'تهران',
+           buy: 0,
+           sell: 0,
+         },
+          {
+           name: 'مشهد',
+           buy: 0,
+           sell: 0,
+         },
+          {
+           name: 'استانبول',
+           buy: 0,
+           sell: 0,
+         },
+       ]
     },
-  };
+    {
+      name: 'لیر ترکیه',
+        cities:[
+          {
+           name: 'تهران',
+           buy: 0,
+           sell: 0,
+         },
+          {
+           name: 'مشهد',
+           buy: 0,
+           sell: 0,
+         },
+          {
+           name: 'استانبول',
+           buy: 0,
+           sell: 0,
+         },
+       ]
+    },
+  ];
 }
