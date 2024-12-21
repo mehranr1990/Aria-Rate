@@ -51,8 +51,6 @@ export class TradeAnalyzerComponent implements OnInit {
               tlorance: tlorance,
             });
           }
-          console.log(this.dataProfit);
-          console.log(this.data);
           this.dataProfit.forEach((item2: any) => {
             item2.cities.forEach((item3: any) => {
               if (item3.sell) {
@@ -89,6 +87,8 @@ export class TradeAnalyzerComponent implements OnInit {
                     }
                   } else {
                     if (this.derham) {
+                      console.log(item3);
+                      
                       if (item3.buy) {
                         if (
                           item3.buy / exaxtmatch.rateToAED <
@@ -115,6 +115,8 @@ export class TradeAnalyzerComponent implements OnInit {
                             telorance: telorance,
                             profit: profit,
                           });
+                        }
+                      }
                           if (this.deals2) {
                             this.dataProfit.forEach((item11: any) => {
                               item11.cities.forEach((item12: any) => {
@@ -133,25 +135,50 @@ export class TradeAnalyzerComponent implements OnInit {
                                     const exaxtmatch1 = match1.rates.find(
                                       (row: any) => row.city == item12.name
                                     );
-                                    const tlorance1 =  item12.sell - (item1.buy / exaxtmatch.rateToAED)*exaxtmatch1.rateFromAED
-                                    const profit1 =( tlorance1/((item1.buy / exaxtmatch.rateToAED)*exaxtmatch1.rateFromAED))*100  
+                                    const match2 = this.data.currencies.find(
+                                      (row: any) => row.name == item.name
+                                    );
+                                    if (match2) {
+                                      const exaxtmatch2 = match2.rates.find(
+                                        (row: any) => row.city == item1.name
+                                      );
+                                    
+                                    const tlorance1 =
+                                      item12.sell -
+                                      (item1.buy / exaxtmatch2.rateToAED) *
+                                        exaxtmatch1.rateFromAED;
+                                    const profit1 =
+                                      (tlorance1 /
+                                        ((item1.buy / exaxtmatch2.rateToAED) *
+                                          exaxtmatch1.rateFromAED)) *
+                                      100;
                                     console.log(match1);
                                     console.log(exaxtmatch1);
-                                    if(item12.sell>exaxtmatch1.rateToAED*(item3.buy / exaxtmatch.rateFromAED)){
+                                    console.log(match);
+                                    console.log(exaxtmatch);
+                                    
+                                    if (
+                                      item12.sell >
+                                      exaxtmatch1.rateToAED *
+                                        (item3.buy / exaxtmatch2.rateFromAED)
+                                    ) {
                                       this.deals3.push({
-                                        derhamPrice:item1.buy / exaxtmatch.rateToAED,
-                                        currencyBuyPrice1:item1.buy,
-                                        currencyName1:item.name,
-                                        currencyName2:item11.name,
-                                        currencyRate1:exaxtmatch.rateToAED,
-                                        currencyRate2:exaxtmatch1.rateFromAED,
-                                        currencySellPrice2:item12.sell,
-                                        currencyFinalPrice2:(item1.buy / exaxtmatch.rateToAED)*exaxtmatch1.rateFromAED,
-                                        tlorance1:tlorance1,
-                                        profit1:profit1
+                                        derhamPrice:
+                                          item1.buy / exaxtmatch2.rateToAED,
+                                        currencyBuyPrice1: item1.buy,
+                                        currencyName1: item.name,
+                                        currencyName2: item11.name,
+                                        currencyRate1: exaxtmatch2.rateToAED,
+                                        currencyRate2: exaxtmatch1.rateFromAED,
+                                        currencySellPrice2: item12.sell,
+                                        currencyFinalPrice2:
+                                          (item1.buy / exaxtmatch2.rateToAED) *
+                                          exaxtmatch1.rateFromAED,
+                                        tlorance1: tlorance1,
+                                        profit1: profit1,
                                       });
                                     }
-                                  }
+                                  }}
                                 }
                               });
                             });
@@ -162,8 +189,7 @@ export class TradeAnalyzerComponent implements OnInit {
 
                           //   });
                           // });
-                        }
-                      }
+                      
                     } else {
                       alert('ابتدا نرخ درهم را مشخص کنید');
                     }
